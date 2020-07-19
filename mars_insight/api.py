@@ -1,9 +1,13 @@
 """ Mars Insight API Client """
 import requests
 
+from .models import InsightWeather
+
+
 URL = 'https://api.nasa.gov/insight_weather/'
 FEEDTYPE = 'json'
 VER = '1.0'
+
 
 class Client():
     """ Client """
@@ -12,9 +16,9 @@ class Client():
         """ Initalise """
         self._api_key = api_key
 
-    def weather(self):
-        """ Weather """
-        r = requests.get(
+    def get_data(self):
+        """ GET data """
+        req = requests.get(
             URL,
             params={
                 'api_key': self._api_key,
@@ -23,7 +27,23 @@ class Client():
             },
         )
 
-        r.raise_for_status()
+        req.raise_for_status()
 
-        data = r.json()
+        data = req.json()
         return data
+
+    def get_recent_weather(self):
+        """ GET data for most recent Sol in a InsightWeather object """
+        data = self.get_data()
+        most_recent_sol = max(data['sol_keys'])
+        weather = InsightWeather(data)
+
+    def get_weather(self):
+        """ GET data for all Sols in an array of InsightWeather objects """
+        data = self.get_data()
+        weather = []
+        for sol in data['sol_keys']:
+            sol_weather = InsightWeather(data[sol])
+            weather.append(sol_weather)
+
+        return weather
