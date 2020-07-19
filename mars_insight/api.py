@@ -4,6 +4,8 @@ import requests
 from .models import InsightWeather
 
 
+__all__ = ['Client']
+
 URL = 'https://api.nasa.gov/insight_weather/'
 FEEDTYPE = 'json'
 VER = '1.0'
@@ -36,14 +38,14 @@ class Client():
         """ GET data for most recent Sol in a InsightWeather object """
         data = self.get_data()
         most_recent_sol = max(data['sol_keys'])
-        weather = InsightWeather(data)
+        weather = InsightWeather(most_recent_sol, data[most_recent_sol])
+        return weather
 
     def get_weather(self):
         """ GET data for all Sols in an array of InsightWeather objects """
         data = self.get_data()
         weather = []
         for sol in data['sol_keys']:
-            sol_weather = InsightWeather(data[sol])
+            sol_weather = InsightWeather(sol, data[sol])
             weather.append(sol_weather)
-
         return weather
