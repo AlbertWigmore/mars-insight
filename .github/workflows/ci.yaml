@@ -90,3 +90,5 @@ jobs:
 
       - name: Run pytest
         run: nox -s pytest
+        env:
+          INSIGHT_API_KEY: ${{ secrets.INSIGHT_API_KEY }}
