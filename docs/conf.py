@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath('..'))  # Autodoc
 project = 'Mars Insight'
 copyright = '2020, Albert Wigmore'
 author = 'Albert Wigmore'
-release = '0.0.1'
+release = '0.0.2'
 
 # # -- General configuration ---------------------------------------------------
 
