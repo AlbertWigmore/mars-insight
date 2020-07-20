@@ -26,12 +26,12 @@ def doc(session):
     session.install('.[dev]')
     session.run(
         'python', '-m', 'sphinx',
-        '-a', # Update all output files
-        '-E', # Do not reuse environment from previous run
-        '-T', # Show full trace on error
-        '-W', # Treat warnings as errors
+        '-a',
+        '-E',
+        '-T',
+        '-W',
         '-c', 'docs/',
-        'docs/src/',
+        'docs/',
         'docs/build/',
     )
 

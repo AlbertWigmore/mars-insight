@@ -7,5 +7,5 @@ A python client to provide easy access to NASA's InSight: Mars Weather Service A
 .. toctree::
     :maxdepth: 2
 
-    getting_started
-    api_reference
+    src/getting_started
+    src/api_reference
