@@ -7,6 +7,8 @@ jobs:
     name: Bandit
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
@@ -22,6 +24,8 @@ jobs:
     name: Documentation
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
@@ -37,6 +41,8 @@ jobs:
     name: Flake8
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
@@ -52,6 +58,8 @@ jobs:
     name: Pylint
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
@@ -70,6 +78,8 @@ jobs:
       matrix:
         python-version: [3.5, 3.6, 3.7, 3.8]
     steps:
+      - uses: actions/checkout@v2
+
       - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
