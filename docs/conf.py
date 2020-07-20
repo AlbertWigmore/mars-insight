@@ -14,6 +14,8 @@ release = '0.0.1'
 
 # # -- General configuration ---------------------------------------------------
 
+master_doc = 'index'
+
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.coverage',
