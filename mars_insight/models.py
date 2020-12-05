@@ -1,4 +1,5 @@
 """ Models """
+import json
 
 
 UNITS = {
@@ -39,6 +40,18 @@ class InsightWeather():  # pylint: disable=R0902,R0903
     def __repr__(self):
         """ Representation """
         return f'Sol: {self.sol}'
+
+    @classmethod
+    def from_json(cls, file_path):
+        """ Load json. """
+        with open(file_path, 'r') as json_fp:
+            data = json.load(json_fp)
+        return cls(data['sol'], data['data'])
+
+    def to_json(self, file_path):
+        """ Save json. """
+        with open(file_path, 'w') as json_fp:
+            json.dump({'sol': self.sol, 'data': self.data}, json_fp)
 
 
 class InsightMeasurement():
