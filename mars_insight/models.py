@@ -34,6 +34,11 @@ class InsightWeather():  # pylint: disable=R0902,R0903
         else:
             self.pressure = None
 
+        if 'WD' in data:
+            self.wind_direction = data['WD']
+        else:
+            self.wind_direction = None
+
         self.season = data['Season']
         self.first_utc = data['First_UTC']
         self.last_utc = data['Last_UTC']

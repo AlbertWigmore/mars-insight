@@ -3,7 +3,6 @@ import json
 
 import pytest
 
-from mars_insight.api import Client
 from mars_insight.models import (
     InsightMeasurement,
     InsightWeather,
