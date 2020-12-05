@@ -1,4 +1,4 @@
-""" Mars Insight API Client """
+"""Mars Insight API Client."""
 import requests
 
 from .models import InsightWeather
@@ -12,14 +12,14 @@ VER = '1.0'
 
 
 class Client():
-    """ Client """
+    """Client."""
 
     def __init__(self, api_key: str):
-        """ Initalise """
+        """Initalise."""
         self._api_key = api_key
 
     def get_data(self):
-        """ GET data """
+        """GET data."""
         req = requests.get(
             URL,
             params={
@@ -35,14 +35,14 @@ class Client():
         return data
 
     def get_recent_weather(self):
-        """ GET data for most recent Sol in a InsightWeather object """
+        """GET data for most recent Sol in a InsightWeather object."""
         data = self.get_data()
         most_recent_sol = max(data['sol_keys'])
         weather = InsightWeather(most_recent_sol, data[most_recent_sol])
         return weather
 
     def get_weather(self):
-        """ GET data for all Sols in an array of InsightWeather objects """
+        """GET data for all Sols in an array of InsightWeather objects."""
         data = self.get_data()
         weather = []
         for sol in data['sol_keys']:

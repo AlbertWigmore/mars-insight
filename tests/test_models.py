@@ -17,14 +17,14 @@ def get_data():
 
 
 def test_insight_weather_class():
-    """ Test InsightWeather class """
+    """Test InsightWeather class."""
     data = get_data()
     weather = InsightWeather(complete_sol, data[complete_sol])
     assert isinstance(weather, InsightWeather)
 
 
 def test_insight_weather_to_json(tmp_path):
-    """ Test InsightWeather to_json method. """
+    """Test InsightWeather to_json method."""
     data = get_data()
     weather = InsightWeather(complete_sol, data[complete_sol])
 
@@ -39,7 +39,7 @@ def test_insight_weather_to_json(tmp_path):
 
 
 def test_insight_weather_from_json(tmp_path):
-    """ Test InsightWeather from_json method. """
+    """Test InsightWeather from_json method."""
     data = get_data()
     weather = InsightWeather(complete_sol, data[complete_sol])
 
@@ -60,7 +60,7 @@ def test_insight_weather_from_json(tmp_path):
 
 
 def test_insight_measurement_class():
-    """ Test InsightMeasurement class """
+    """Test InsightMeasurement class."""
     data = get_data()
     weather = InsightMeasurement(data[complete_sol]['AT'], 'Temperature')
     assert isinstance(weather, InsightMeasurement)

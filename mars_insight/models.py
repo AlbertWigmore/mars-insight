@@ -1,7 +1,8 @@
-""" Models """
+"""Insight Models."""
 import json
 
 
+# Set of allowed units for Insight measurements
 UNITS = {
     'Temperature': 'F',
     'Pressure': 'Pa',
@@ -11,10 +12,10 @@ UNITS = {
 
 
 class InsightWeather():  # pylint: disable=R0902,R0903
-    """ Weather Object """
+    """Weather Object."""
 
     def __init__(self, sol, data):
-        """ Initialise """
+        """Initialise."""
         self.sol = sol
         self.data = data
 
@@ -38,24 +39,24 @@ class InsightWeather():  # pylint: disable=R0902,R0903
         self.last_utc = data['Last_UTC']
 
     def __repr__(self):
-        """ Representation """
+        """Representation."""
         return f'Sol: {self.sol}'
 
     @classmethod
     def from_json(cls, file_path):
-        """ Load json. """
+        """Load json."""
         with open(file_path, 'r') as json_fp:
             data = json.load(json_fp)
         return cls(data['sol'], data['data'])
 
     def to_json(self, file_path):
-        """ Save json. """
+        """Save json."""
         with open(file_path, 'w') as json_fp:
             json.dump({'sol': self.sol, 'data': self.data}, json_fp)
 
 
 class InsightMeasurement():
-    """ Measurement Object """
+    """Measurement Object."""
 
     def __init__(self, data, weather_type):
         self._min = data['mn']
@@ -66,35 +67,35 @@ class InsightMeasurement():
         self._unit = UNITS[weather_type]
 
     def __repr__(self):
-        """ Representation """
+        """Representation."""
         return f'{self._weather_type}: {self._avg} {self._unit}'
 
     @property
     def unit(self):
-        """ Unit """
+        """Unit."""
         return self._unit
 
     @property
     def max(self):
-        """ Maximum measurement """
+        """Maximum measurement."""
         return self._max
 
     @property
     def min(self):
-        """ Minimum measurement """
+        """Minimum measurement."""
         return self._min
 
     @property
     def avg(self):
-        """ Average measurement """
+        """Average measurement."""
         return self._avg
 
     @property
     def num_measurements(self):
-        """ Number of measurements """
+        """Number of measurements."""
         return self._num_measurements
 
     @property
     def weather_type(self):
-        """ Type of weather measurement """
+        """Type of weather measurement."""
         return self._weather_type
