@@ -1,7 +1,5 @@
-User Guide
-==========
-
-
+Getting Started
+===============
 
 Installation
 ------------
@@ -25,6 +23,7 @@ Installing from source.
 Quickstart
 ----------
 
+In order to use the library you will need to register for a NASA Open API key [here](https://api.nasa.gov/).
 
 .. code-block:: python
 
