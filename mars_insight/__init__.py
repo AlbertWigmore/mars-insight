@@ -3,6 +3,6 @@
 from . import api
 from . import models
 
-__all__ = ['api', 'models']
+__all__ = ['api', 'models', 'plot']
 
 __version__ = '0.0.2'
