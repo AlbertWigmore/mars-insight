@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name='mars_insight',
-    version='0.0.2',
+    version='0.1.0',
     description='Mars InSight weather service API client',
     author='Albert Wigmore',
     author_email='albertwigmore@googlemail.com',

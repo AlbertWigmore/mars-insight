@@ -3,12 +3,13 @@ Changelog
 
 v0.1.0
 ------
-**Date**
+**01 January 2020**
 
 - Added `plot` module with initial plot_wind_rose function.
 - Added user guide section with examples on how to use library.
 - Added developer guide to docs with changelog and how to make a release.
 - Added daily testing to continuous integration to perform regression testing and capture potential bugs.
+- Automated release CI to upload distribution to PyPI.
 
 
 v0.0.2-alpha
