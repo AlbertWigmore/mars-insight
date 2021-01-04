@@ -3,7 +3,7 @@ Changelog
 
 v0.1.0
 ------
-**01 January 2020**
+**04 January 2020**
 
 - Added `plot` module with initial plot_wind_rose function.
 - Added user guide section with examples on how to use library.
